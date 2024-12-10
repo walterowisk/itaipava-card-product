@@ -1,0 +1,1 @@
+# itaipava-card-product
