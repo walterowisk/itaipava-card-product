@@ -115,22 +115,22 @@ body {
 }
 
 .card .content h2 {
-  color: #fff;
+  color: #f2efe7;
   text-transform: uppercase;
   font-size: 2.5em;
   line-height: 1em;
 }
 
 .card .content p {
-  color: #fff;
+  color: #f2efe7;
 }
 
 .card .content a {
   position: relative;
-  color: #fff;
+  color: #f2efe7;
   background: #d52b1e;
   padding: 10px 20px;
-  border-radius: 10px;
+  border-radius: 12px;
   display: inline-block;
   text-decoration: none;
   font-weight: 600;
