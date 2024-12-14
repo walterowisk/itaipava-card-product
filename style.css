@@ -139,18 +139,10 @@ body {
 
 /* RESPONSIVIDADE*/
 @media screen and (max-width: 768px) {
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-  }
-
   .card {
     position: relative;
-    width: 300px; /* Mantém a largura original */
-    height: 350px; /* Mantém a altura original */
+    width: 300px;
+    height: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -159,7 +151,7 @@ body {
   }
 
   .card:hover {
-    width: 300px; /* Mantém a largura original no hover */
+    width: 300px;
   }
 
   .card .circle {
@@ -200,7 +192,9 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0) rotate(315deg);
-    height: 300px;
+    max-height: 200px; /* Limita a altura máxima */
+    width: auto; /* Mantém a proporção */
+    opacity: 0; /* Começa invisível */
     transition: 0.5s ease-in-out;
     z-index: 5;
   }
@@ -228,7 +222,8 @@ body {
   .card:hover .product_img {
     top: 25%;
     left: 75%;
-    height: 530px;
+    max-height: 300px; /* Ajusta altura no hover */
+    opacity: 1; /* Torna visível */
     transform: translate(-50%, -50%) scale(1) rotate(15deg);
   }
 
@@ -238,7 +233,7 @@ body {
     left: 20px;
   }
 
-  /* Ajustes para dispositivos menores */
+  /* Ajustes para dispositivos muito pequenos */
   @media screen and (max-width: 480px) {
     .card {
       width: 280px;
@@ -250,11 +245,11 @@ body {
     }
 
     .card .product_img {
-      height: 250px;
+      max-height: 150px;
     }
 
     .card:hover .product_img {
-      height: 450px;
+      max-height: 250px;
     }
   }
 }
