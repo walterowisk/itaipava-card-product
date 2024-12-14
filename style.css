@@ -137,78 +137,111 @@ body {
   margin-top: 10px;
 }
 
-/* Responsividade */
+/* RESPONSIVIDADE*/
 @media screen and (max-width: 768px) {
+  body {
+    padding: 20px; /* Adiciona padding para evitar colagem nas bordas */
+  }
+
   .card {
-    width: 90%;
-    height: auto;
-    flex-direction: column;
-    margin: 20px auto; 
+    position: relative; /* Corrige possíveis problemas de posicionamento */
+    width: 100%; /* Ocupa toda a largura disponível */
+    max-width: 350px; /* Largura máxima para evitar card muito largo */
+    height: auto; /* Altura automática */
+    margin: 20px auto; /* Centraliza e adiciona margem */
+    transition: all 0.5s ease; /* Suaviza todas as transições */
   }
 
   .card:hover {
-    width: 95%; 
+    width: 100%; /* Mantém a largura consistente */
   }
 
   .card .circle::before {
     width: 100%; 
-    height: 200px; 
+    height: 100%; /* Ocupa toda a altura do card */
     border-radius: 20px;
+    left: 0;
+    top: 0;
   }
 
   .card .circle .logo {
-    width: 150px; 
+    width: 150px; /* Tamanho reduzido para mobile */
+    max-width: 100%; /* Evita overflow */
   }
 
   .card .product_img {
-    position: relative; 
-    transform: scale(0.7) rotate(0deg); 
-    margin-top: 20px; 
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0) scale(0.8); /* Simplifica transformação */
+    height: auto;
+    max-width: 100%; /* Respeita largura do container */
+    margin: 20px 0;
   }
 
   .card:hover .product_img {
-    top: 50%; 
-    left: 50%;
-    height: 250px; 
-    transform: translate(-50%, -50%) scale(0.8) rotate(0deg);
+    top: 0;
+    left: 0;
+    transform: translate(0, 0) scale(0.9);
+    height: auto;
   }
 
   .card .content {
     position: relative;
-    width: 100%; 
-    left: 0; 
+    width: 100%;
+    left: 0;
+    padding: 20px 10px;
+    opacity: 1;
+    visibility: visible;
     text-align: center;
-    padding: 20px 10px; 
-    opacity: 1; 
-    visibility: visible; 
   }
 
   .card .content h2 {
-    font-size: 2em; 
+    font-size: 1.8em;
+    margin-bottom: 10px;
   }
 
   .card .content p {
-    font-size: 0.9em; 
+    font-size: 1em;
+    margin-bottom: 15px;
   }
 
   .card .content a {
-    display: block; 
-    width: 80%; 
-    margin: 10px auto; 
+    display: inline-block;
+    width: auto;
+    padding: 10px 20px;
+    margin: 0 auto;
+  }
+
+  /* Remove hover effects for mobile to improve usability */
+  .card:hover {
+    width: 100%;
+    transition: none;
+  }
+
+  .card:hover .circle::before,
+  .card:hover .circle .logo,
+  .card:hover .content {
+    transition: none;
   }
 }
 
-/* Para dispositivos menores */
+/* Para dispositivos muito pequenos */
 @media screen and (max-width: 480px) {
+  .card {
+    width: 90%; /* Slightly less width for very small screens */
+    margin: 10px auto;
+  }
+
   .card .circle .logo {
-    width: 120px; 
+    width: 120px;
   }
 
   .card .content h2 {
-    font-size: 1.8em; 
+    font-size: 1.6em;
   }
 
   .card .product_img {
-    height: 200px; 
+    transform: scale(0.7);
   }
 }
