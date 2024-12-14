@@ -140,108 +140,121 @@ body {
 /* RESPONSIVIDADE*/
 @media screen and (max-width: 768px) {
   body {
-    padding: 20px; /* Adiciona padding para evitar colagem nas bordas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
   }
 
   .card {
-    position: relative; /* Corrige possíveis problemas de posicionamento */
-    width: 100%; /* Ocupa toda a largura disponível */
-    max-width: 350px; /* Largura máxima para evitar card muito largo */
-    height: auto; /* Altura automática */
-    margin: 20px auto; /* Centraliza e adiciona margem */
-    transition: all 0.5s ease; /* Suaviza todas as transições */
+    position: relative;
+    width: 300px; /* Mantém a largura original */
+    height: 350px; /* Mantém a altura original */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    transition-delay: 0.5s;
   }
 
   .card:hover {
-    width: 100%; /* Mantém a largura consistente */
+    width: 300px; /* Mantém a largura original no hover */
+  }
+
+  .card .circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .card .circle::before {
-    width: 100%; 
-    height: 100%; /* Ocupa toda a altura do card */
-    border-radius: 20px;
-    left: 0;
+    content: "";
+    position: absolute;
     top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: #c33923;
+    border: 8px solid var(--clr);
+    transition: 0.5s, background 0.5s;
+    filter: drop-shadow(0 0 10px var(--clr)) drop-shadow(0 0 60px var(--clr));
   }
 
   .card .circle .logo {
-    width: 150px; /* Tamanho reduzido para mobile */
-    max-width: 100%; /* Evita overflow */
+    position: relative;
+    width: 250px;
+    transition: 0.5s;
+    z-index: 10;
   }
 
   .card .product_img {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: translate(0, 0) scale(0.8); /* Simplifica transformação */
-    height: auto;
-    max-width: 100%; /* Respeita largura do container */
-    margin: 20px 0;
-  }
-
-  .card:hover .product_img {
-    top: 0;
-    left: 0;
-    transform: translate(0, 0) scale(0.9);
-    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0) rotate(315deg);
+    height: 300px;
+    transition: 0.5s ease-in-out;
+    z-index: 5;
   }
 
   .card .content {
-    position: relative;
-    width: 100%;
-    left: 0;
-    padding: 20px 10px;
+    position: absolute;
+    width: 50%;
+    left: 20%;
+    padding: 20px;
+    opacity: 0;
+    transition: 0.5s;
+    visibility: hidden;
+    z-index: 15;
+  }
+
+  /* Efeitos de hover */
+  .card:hover .circle::before {
+    background: var(--clr);
+  }
+
+  .card:hover .circle .logo {
+    transform: scale(0);
+  }
+
+  .card:hover .product_img {
+    top: 25%;
+    left: 75%;
+    height: 530px;
+    transform: translate(-50%, -50%) scale(1) rotate(15deg);
+  }
+
+  .card:hover .content {
     opacity: 1;
     visibility: visible;
-    text-align: center;
+    left: 20px;
   }
 
-  .card .content h2 {
-    font-size: 1.8em;
-    margin-bottom: 10px;
-  }
+  /* Ajustes para dispositivos menores */
+  @media screen and (max-width: 480px) {
+    .card {
+      width: 280px;
+      height: 320px;
+    }
 
-  .card .content p {
-    font-size: 1em;
-    margin-bottom: 15px;
-  }
+    .card .circle .logo {
+      width: 200px;
+    }
 
-  .card .content a {
-    display: inline-block;
-    width: auto;
-    padding: 10px 20px;
-    margin: 0 auto;
-  }
+    .card .product_img {
+      height: 250px;
+    }
 
-  /* Remove hover effects for mobile to improve usability */
-  .card:hover {
-    width: 100%;
-    transition: none;
-  }
-
-  .card:hover .circle::before,
-  .card:hover .circle .logo,
-  .card:hover .content {
-    transition: none;
-  }
-}
-
-/* Para dispositivos muito pequenos */
-@media screen and (max-width: 480px) {
-  .card {
-    width: 90%; /* Slightly less width for very small screens */
-    margin: 10px auto;
-  }
-
-  .card .circle .logo {
-    width: 120px;
-  }
-
-  .card .content h2 {
-    font-size: 1.6em;
-  }
-
-  .card .product_img {
-    transform: scale(0.7);
+    .card:hover .product_img {
+      height: 450px;
+    }
   }
 }
