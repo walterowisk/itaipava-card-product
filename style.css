@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
 
 * {
-  margin: 0;
-  padding: 0;
+  margin: 10;
+  padding-right: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
@@ -18,17 +18,18 @@ body {
 
 .card {
   position: relative;
-  width: 90%;
-  max-width: 300px;
-  height: 400px;
+  width: 300px;
+  height: 350px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.5s ease-in-out;
+  transition: 0.5s;
+  transition-delay: 0.5s;
 }
 
 .card:hover {
-  max-width: 600px;
+  width: 600px;
+  transition-delay: 0.5s;
 }
 
 .card .circle {
@@ -46,30 +47,37 @@ body {
 .card .circle::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 30;
+  left: 2;
+  right: 2;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
   background: #c33923;
   border: 8px solid var(--clr);
-  transition: 0.5s ease-in-out;
+  transition: 0.5s, background 0.5s;
+  transition-delay: 0.75s, 1s;
   filter: drop-shadow(0 0 10px var(--clr)) drop-shadow(0 0 60px var(--clr));
 }
 
 .card:hover .circle::before {
+  transition-delay: 0.5s;
+  width: 100%;
+  height: 100%;
   border-radius: 20px;
   background: var(--clr);
 }
 
 .card .circle .logo {
   position: relative;
-  width: 70%;
-  transition: 0.5s ease-in-out;
+  width: 250px;
+  transition: 0.5s;
+  transition-delay: 0.5s;
 }
 
 .card:hover .circle .logo {
   transform: scale(0);
+  transition-delay: 0s;
 }
 
 .card .product_img {
@@ -77,43 +85,44 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0) rotate(315deg);
-  height: 250px;
+  height: 300px;
   transition: 0.5s ease-in-out;
 }
 
 .card:hover .product_img {
-  top: 20%;
-  left: 80%;
+  transition-delay: 0.75s;
+  top: 25%;
+  left: 75%;
+  height: 530px;
   transform: translate(-50%, -50%) scale(1) rotate(15deg);
-  height: 400px;
 }
 
 .card .content {
   position: absolute;
-  width: 60%;
-  padding: 20px;
+  width: 50%;
   left: 20%;
+  padding: 20px 20px 20px 20px;
   opacity: 0;
+  transition: 0.5s;
   visibility: hidden;
-  transition: 0.5s ease-in-out;
 }
 
 .card:hover .content {
+  transition-delay: 0.75s;
   opacity: 1;
   visibility: visible;
-  left: 10px;
+  left: 20px;
 }
 
 .card .content h2 {
   color: #f2efe7;
   text-transform: uppercase;
-  font-size: 2.2em;
+  font-size: 2.5em;
   line-height: 1em;
 }
 
 .card .content p {
   color: #f2efe7;
-  font-size: 0.9em;
 }
 
 .card .content a {
@@ -128,92 +137,9 @@ body {
   margin-top: 10px;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-  .card {
-    max-width: 90%;
-    height: auto;
-  }
-
-  .card:hover {
-    max-width: 100%;
-  }
-
-  .card .circle::before {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-  }
-
-  .card .product_img {
-    height: 200px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .card:hover .product_img {
-    height: 300px;
-    top: 30%;
-    left: 70%;
-  }
-
-  .card .content {
-    width: 90%;
-    left: 5%;
-    padding: 15px;
-  }
-
-  .card:hover .content {
-    left: 5%;
-  }
-
-  .card .content h2 {
-    font-size: 1.8em;
-  }
-
-  .card .content p {
-    font-size: 0.85em;
-  }
-
-  .card .content a {
-    padding: 8px 16px;
-    font-size: 0.9em;
-  }
-}
-
-@media (max-width: 480px) {
-  .card {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .card .circle::before {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-  }
-
-  .card .product_img {
-    height: 150px;
-  }
-
-  .card:hover .product_img {
-    height: 250px;
-    top: 40%;
-    left: 70%;
-  }
-
-  .card .content h2 {
-    font-size: 1.5em;
-  }
-
-  .card .content p {
-    font-size: 0.8em;
-  }
-
-  .card .content a {
-    padding: 6px 12px;
-    font-size: 0.85em;
+@media screen and (max-width: 820px) {
+  body {
+    padding-left: 12px;
+    padding-right: 12px;
   }
 }
