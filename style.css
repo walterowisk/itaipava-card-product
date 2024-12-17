@@ -137,10 +137,50 @@ body {
   margin-top: 10px;
 }
 
-/* RESPONSIVIDADE*/
-@media screen and (max-width: 820px) {
-  body {
-    padding-left: 16px;
-    padding-right: 16px;
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .card {
+    width: 95%;
+    max-width: 90%;
+    height: auto;
+  }
+
+  .card:hover {
+    width: 100%;
+  }
+
+  .card .product_img {
+    max-height: 250px;
+    top: 50%;
+    left: 50%;
+  }
+
+  .card .content {
+    width: 90%;
+    left: 5%;
+  }
+
+  .card:hover .content {
+    left: 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .card .circle::before {
+    width: 250px;
+    height: 250px;
+  }
+
+  .card .content h2 {
+    font-size: 1.5em;
+  }
+
+  .card .content p {
+    font-size: 0.9em;
+  }
+
+  .card .content a {
+    padding: 8px 16px;
   }
 }
